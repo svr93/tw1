@@ -35,7 +35,7 @@ var production = (process.argv.indexOf('--production') != -1);
 var AUTORELOAD_TASK = 'autoreload';
 var watch = (process.argv.indexOf(AUTORELOAD_TASK) != -1);
 
-var DIR = 'server';
+var DIR = 'build';
 
 /* ----- tasks ----- */
 
@@ -84,9 +84,10 @@ gulp.task('css', function() {
 gulp.task('js', function() {
 
   gulp.src([
-    'js/uploader.js',
-    'js/init.js'
-  ])
+    'js/lib.js',
+    'js/lib-extend.js',
+    'js/app.js'
+    ])
       .pipe(checkJs())
       .pipe(checkJs.reporter(styleOutput))
       .pipe(transformJs({
@@ -104,7 +105,8 @@ gulp.task('js', function() {
 gulp.task('connect', function() {
 
   connect.server({
-    port: 8080,
+    host: '127.0.0.2',
+    port: 8888,
     root: '../' + DIR,
     livereload: true
   });
