@@ -14,7 +14,22 @@ PeopleDataContainer.prototype.createTableFromRows = function() {
   this._rows.forEach(function (row) {
     var tr = document.createElement('tr');
 
-    row.slice(0, row.length - 1).forEach(function (item) {
+    var td = document.createElement('td');
+    var img = document.createElement('img');
+
+    img.width = 30;
+    img.height = 30;
+
+    img.src = row[0];
+    td.appendChild(img);
+
+    var div = document.createElement('div');
+    div.innerHTML = row[1];
+
+    td.appendChild(div);
+    tr.appendChild(td);
+
+    row.slice(2, row.length - 1).forEach(function (item) {
       var td = document.createElement('td');
       td.innerHTML = item;
       tr.appendChild(td);
