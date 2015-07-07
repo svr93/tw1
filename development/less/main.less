@@ -1,0 +1,58 @@
+@baseGreen: #005c00;
+@baseGray: #c8c8c8;
+
+nav {
+  width: 100%;
+  padding: 10px 0 0 0;
+}
+table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+td {
+  border-top: 1px solid @baseGreen;
+}
+
+.tab, .tab--active {
+  display: inline-block;
+  vertical-align: bottom;
+  width: 20%;
+  font: bold 16px Arial;
+  line-height: 45px;
+  border-radius: 10px 10px 0 0;
+}
+.tab {
+  height: 40px;
+  background-color: @baseGreen;
+
+  border-width: 1px;
+  border-style: solid;
+  border-color: @baseGray;
+  color: white;
+}
+.tab--active {
+  height: 50px;
+
+  border-width: 4px;
+  border-style: double;
+  border-color: @baseGreen;
+  color: @baseGreen;
+}
+
+.tab:hover {
+  cursor: pointer;
+  animation: changeHeight 0.1s linear forwards;
+}
+@keyframes changeHeight {
+  0% {
+    height: 40px;
+  }
+  100% {
+    height: 50px;
+  }
+}
+
+.bottom-border {
+  border-bottom: 1px solid @baseGreen;
+}
